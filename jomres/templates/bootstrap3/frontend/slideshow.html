@@ -1,0 +1,26 @@
+<patTemplate:tmpl name="pageoutput" unusedvars="strip">
+<div id="galleria_{RANDOM_IDENTIFIER}">
+	<patTemplate:tmpl name="rows">
+		<a href="{IMAGE}"><img src="{IMAGETHUMB}"/></a>
+	</patTemplate:tmpl>
+</div>
+
+<script type="text/javascript">
+	<!--
+	jomresJquery(document).ready(function () {
+		jomresJquery('#galleria_{RANDOM_IDENTIFIER}').galleria({
+			responsive: true,
+			width: '100%',
+			height: 0.65,
+			transition: "slide",
+			imageCrop: true,
+			lightbox: true,
+			autoplay: 5000,
+			preload: 0,
+			debug: false
+		});
+	});
+	//-->
+</script>
+</patTemplate:tmpl>
+

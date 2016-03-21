@@ -1,0 +1,28 @@
+<patTemplate:tmpl name="pageoutput" unusedvars="strip">
+<script language="JavaScript" type="text/javascript">
+jomresJquery(document).ready(function() {
+	var oTable = jomresJquery('#list_common_strings').dataTable({
+		"bJQueryUI": true,
+		"sPaginationType": "full_numbers"
+	});
+} );
+</script>
+<h2>{TITLE}</h2>
+<p>{_COMMON_STRINGS_INFO}</p>
+<table id="list_common_strings" width="100%" border="0" width="100%">
+	<thead>
+		<tr>
+			<th>{_COMMON_STRINGS_CONSTANT}</th>
+			<th>{_COMMON_STRINGS_VALUE}</th>
+		</tr>
+	</thead>
+	<tbody>
+		<patTemplate:tmpl name="rows" unusedvars="nbsp">
+		<tr>
+			<td>{CONSTANT}</td>
+			<td>{VALUE}</td>
+		</tr>
+		</patTemplate:tmpl>
+	</tbody>
+</table>
+</patTemplate:tmpl>

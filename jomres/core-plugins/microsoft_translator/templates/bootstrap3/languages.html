@@ -1,0 +1,71 @@
+<patTemplate:tmpl name="pageoutput" unusedvars="strip">
+<script>
+var language_xref = new Array();
+<patTemplate:tmpl name="language_xref">
+language_xref['{SHORTCODE}']="{LONGCODE}";</patTemplate:tmpl>
+function get_translation(constant)
+	{
+	var original_language = jomresJquery('#source_lang').val();
+	var destination_language = jomresJquery('#dest_lang').val();
+	if (original_language == destination_language)
+		alert("{_JOMRES_MISCROSOFT_TRANSLATOR_ERRORSAME}");
+	else
+		{
+		var original_string = encodeURIComponent(jomresJquery('#'+constant+'_original').html());
+		jomresJquery.get("{JOMRES_SITEPAGE_URL_ADMIN_AJAX}"+"&task=ajax_microsoft_translator&original_language="+original_language+"&destination_language="+destination_language+"&original_string="+original_string, function(data) {
+			jomresJquery('#'+constant+'_translation_input').val(data);
+			jomresJquery('#'+constant+'_translation').show();
+			jomresJquery('#'+constant+'_save_button').show();
+			});
+		}
+	}
+	
+function save_translation(constant,translation)
+	{
+	var translation = jomresJquery('#'+constant+'_translation_input').val();
+	var destination_language = jomresJquery('#dest_lang').val();
+	jomresJquery.get("{JOMRES_SITEPAGE_URL_ADMIN_AJAX}"+"&task=microsoft_translator_save_translation &jomreslang="+destination_language+"&theConstant="+constant+"&newtext="+translation, 
+	function(data) {
+			jomresJquery('#'+constant+'_translation').addClass("alert alert-success");
+			});
+	}
+</script>
+
+<h2 class="page-header">Microsoft Translator</h2>
+<p>{_JOMRES_MISCROSOFT_TRANSLATOR_INSTRUCTIONS}</p>
+<form action="{JOMRES_SITEPAGE_URL_ADMIN}" method="post" name="adminForm" class="form-horizontal">
+	<fieldset>
+		<div class="control-group">
+		<label class="control-label" for="source_lang">{_JOMRES_MISCROSOFT_TRANSLATOR_SOURCELANG}</label>
+			<div class="controls">
+				<select id="source_lang" autocomplete="off" class="input-large">
+					<patTemplate:tmpl name="lrows">
+					<option value="{SHORTCODE}">{LANGNAME}</option>
+					</patTemplate:tmpl>
+				</select>
+			</div> 
+		</div>
+		<div class="control-group">
+		<label class="control-label" for="dest_lang">{_JOMRES_MISCROSOFT_TRANSLATOR_DESTLANG}</label>
+			<div class="controls">
+				<select id="dest_lang" autocomplete="off" class="input-large">
+					<patTemplate:tmpl name="lrows2">
+					<option value="{SHORTCODE}">{LANGNAME}</option>
+					</patTemplate:tmpl>
+				</select>
+			</div> 
+		</div>
+	</fieldset>
+	<p>&nbsp;</p>	
+	<div class="row-striped">
+		<patTemplate:tmpl name="rows" unusedvars="strip">
+		<div class="row-fluid">
+			<div class="span4" id="{CONSTANT}_original">{ORIGINAL_TEXT}</div>
+			<div class="span2"><input type="button" class="btn" onClick="get_translation('{CONSTANT}')" value="Get translation"/></div>
+			<div class="span4 alert alert-warning" id="{CONSTANT}_translation" style="display:none;"><textarea id="{CONSTANT}_translation_input" value=""/></textarea></div>
+			<div class="span2" id="{CONSTANT}_save_button" style="display:none;"><input type="button" class="btn btn-primary" onClick="save_translation('{CONSTANT}')" value="{_JOMRES_MISCROSOFT_TRANSLATOR_SAVETRANSLATION}"/></div>
+		</div>
+		</patTemplate:tmpl>
+	</div>
+</form>
+</patTemplate:tmpl>

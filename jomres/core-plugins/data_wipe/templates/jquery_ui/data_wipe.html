@@ -1,0 +1,15 @@
+<patTemplate:tmpl name="pageoutput">
+<h2>{PAGETITLE}</h2>
+<table width="100%" border="0" class="ui-widget-content ui-corner-all">
+	<tr>
+		<td>
+			<form action="{JOMRES_SITEPAGE_URL_ADMIN}" method="post" name="adminForm">
+			<p>{_JOMRES_DATAWIPE_DESC}</p>
+			<p><strong>{_JOMRES_DATAWIPE_WARNING}</strong></p>
+			<input type="submit" name="wipe" value="{_JOMRES_DATAWIPE_GO}"   class="fg-button ui-state-default ui-corner-all" size="150px" />
+			<input type="hidden" name="task" value="do_data_wipe" />
+			</form>
+		</td>
+	</tr>
+</table>
+</patTemplate:tmpl>

@@ -1,0 +1,44 @@
+<patTemplate:tmpl name="pageoutput" unusedvars="strip">
+	<script type="text/javascript">
+		<!--
+		jomresJquery(document).ready(function () {
+			var oTable = jomresJquery('#list_rfeatures').dataTable({
+				"bJQueryUI": true,
+				"bStateSave": true,
+				"sPaginationType": "full_numbers"
+			});
+		});
+		//-->
+	</script>
+	<h2>{PAGETITLE}</h2>
+
+	<form action="{JOMRES_SITEPAGE_URL_ADMIN}" method="post" name="adminForm">
+		{JOMRESTOOLBAR}
+		<table id="list_rfeatures" width="100%">
+			<thead>
+			<tr>
+				<th>{COMMON_EDIT}</th>
+				<th><input type="checkbox" name="toggle" value="" onclick="jomres_checkAll({TOTALINLISTPLUSONE});"/> {COMMON_DELETE}</th>
+				<th>{HRFEATURETITLE}</th>
+				<th>{HIMAGE}</th>
+				<th>{HPROPERTY_TYPES}</th>
+			</tr>
+			</thead>
+			<tbody>
+			<patTemplate:tmpl name="rows" unusedvars="strip">
+				<tr>
+					<td>{LINKTEXT}</td>
+					<td>{CHECKBOX}</td>
+					<td>{RFEATURETITLE}</td>
+					<td><img src="{IMAGE}" alt="{RFEATURETITLE}"/></td>
+					<td>{PROPERTY_TYPES}</td>
+				</tr>
+			</patTemplate:tmpl>
+			</tbody>
+		</table>
+		<input type="hidden" name="boxchecked" value="0">
+		<input type="hidden" name="option" value="com_jomres"/>
+		<input type="hidden" name="task" value="editRfeature"/>
+		<input type="hidden" name="Itemid" value="{ITEMID}"/>
+	</form>
+</patTemplate:tmpl>

@@ -1,0 +1,27 @@
+<patTemplate:tmpl name="pageoutput" unusedvars="strip">
+<h2 class="page-header">{PAGETITLE}</h2>
+<form action="{JOMRES_SITEPAGE_URL_ADMIN}" method="post" name="adminForm" class="form-horizontal">
+{JOMRESTOOLBAR}
+<div class="control-group">
+	<div class="control-label">
+		{HPATH}
+	</div>
+	<div class="controls">
+		<span class="help-inline">http://</span><input class="jomres_inputbox" type="text" name="idev_affiliates_pathtosalephp" value="{PATH}" class="input-medium"/>
+		<p class="help-block">
+			{PATH_DESC}
+		</p>
+	</div>
+</div>
+<div class="control-group">
+	<div class="control-label">
+		{HPROFILE}
+	</div>
+	<div class="controls">
+		<input class="jomres_inputbox" type="text" name="profile" value="{PROFILE}" class="input-medium"/>
+	</div>
+</div>
+<input type="hidden" name="no_html" value="1" />
+<input type="hidden" name="task" value="save_idev_affiliates_settings" />
+</form>
+</patTemplate:tmpl>

@@ -1,0 +1,26 @@
+<patTemplate:tmpl name="pageoutput" unusedvars="strip">
+<h2 class="page-header">{PAGETITLE}</h2>
+<p>{_JOMRES_MISCROSOFT_TRANSLATOR_SETTINGS_INFO}</p>
+<form action="{JOMRES_SITEPAGE_URL_ADMIN}" method="post" name="adminForm" class="form-horizontal">
+{JOMRESTOOLBAR}
+	<fieldset>
+		<div class="control-group">
+		<label class="control-label" for="account_key">{_JOMRES_MISCROSOFT_TRANSLATOR_SETTINGS_APIKEY}</label>
+			<div class="controls">
+				<input type="text" name="account_key" value="{ACCOUNT_KEY}" class="input-large" />
+			</div> 
+		</div>
+		
+		<div class="control-group">
+		<label class="control-label" for="client_id">{_JOMRES_MISCROSOFT_TRANSLATOR_SETTINGS_CLIENTID}</label>
+			<div class="controls">
+				<input type="text" name="client_id" value="{CLIENT_ID}" class="input-large" />
+			</div> 
+		</div>
+		
+		<input type="hidden" name="task" value="save_microsoft_translator_settings" />
+	</fieldset>
+</form>
+<br /><br />
+<img src="{PATHTOTHISDIR}/client_registration.png"/>
+</patTemplate:tmpl>

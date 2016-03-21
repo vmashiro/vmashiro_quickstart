@@ -1,0 +1,35 @@
+<patTemplate:tmpl name="pageoutput" unusedvars="strip">
+<script language="javascript" type="text/javascript">
+	<!--
+	jomresJquery(document).ready(function () {
+		make_datatable('ical_feeds', '{PAGETITLE}', '{LIVESITE}');
+	});
+	//-->
+</script>
+
+<h2 class="page-header">{PAGETITLE}</h2>
+
+<p class="alert alert-info">{DESCRIPTION}</p>
+
+<table class="table table-striped" id="ical_feeds" width="100%">
+	<thead>
+		<tr>
+			<th>{COMMON_DOWNLOAD}</th>
+			<th>{HROOM_TYPE}</th>
+			<th>{HICAL_FEED_LINK}</th>
+			<th>{HANONYMISED_ICAL_FEED_LINK}</th>
+		</tr>
+	</thead>
+	<tbody>
+	<patTemplate:tmpl name="rows" unusedvars="nbsp" type="simpleCondition" requiredVars="room_type">
+		<tr>
+			<td>{TOOLBAR}</td>
+			<td>{ROOM_TYPE}</td>
+			<td>{ICAL_FEED_LINK}</td>
+			<td>{ANONYMISED_ICAL_FEED_LINK}</td>
+		</tr>
+	</patTemplate:tmpl>
+	</tbody>
+</table>
+
+</patTemplate:tmpl>

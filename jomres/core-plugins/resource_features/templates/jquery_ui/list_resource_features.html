@@ -1,0 +1,31 @@
+<patTemplate:tmpl name="pageoutput" unusedvars="strip">
+<script language="JavaScript" type="text/javascript">
+	jomresJquery(document).ready(function () {
+		var oTable = jomresJquery('#room_features').dataTable({
+			"bJQueryUI": true,
+			"bStateSave": true,
+			"sPaginationType": "full_numbers"
+		});
+	});
+</script>
+<h2>{PAGETITLE}</h2>
+{JOMRESTOOLBAR}
+<table class="table table-condensed" id="room_features" width="100%">
+	<thead>
+		<tr>
+			<th>{COMMON_EDIT}</th>
+			<th>{HROOM_FEATURE}</th>
+			<th>{HIMAGE}</th>
+		</tr>
+	</thead>
+	<tbody>
+	<patTemplate:tmpl name="rows" unusedvars="nbsp">
+		<tr>
+			<td>{BUTTONS}</td>
+			<td>{FEATURE}</td>
+			<td><img src="{FEATURE_IMAGE}" /></td>
+		</tr>
+	</patTemplate:tmpl>
+	</tbody>
+</table>
+</patTemplate:tmpl>

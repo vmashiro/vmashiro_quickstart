@@ -1,0 +1,91 @@
+// Vina Camera Slider overrides
+
+.camera_wrap {
+	overflow:hidden;
+}
+
+.camera_caption > div {
+	background: transparent !important;
+	text-align:center;
+}
+
+.camera_caption > div h3 {
+	font-weight:normal;
+	text-shadow:0 3px 3px rgba(0, 0, 0, 0.3);
+	text-transform: uppercase;
+}
+
+.camera_caption > div p {
+	text-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+.camera_caption > div button {
+	margin-top:20px;
+}
+
+@media (max-width: @screen-xs-max) {
+	/*.home .t3-sl-1 {
+		min-height:202px !important;
+	}*/
+	.camera_caption {
+		top:0 !important;
+	}
+	.camera_caption > div h3 {
+		font-size:36px;
+		line-height:46px;
+	}
+	.camera_caption > div p {
+		display:none;
+	}
+	.camera_caption > div button {
+		margin-top:0;
+	}
+}
+
+@media (min-width: @screen-sm) and (max-width: @screen-sm-max) {
+	.camera_caption {
+		top:0 !important;
+	}
+	.camera_caption > div h3 {
+		font-size:44px;
+		line-height:54px;
+	}
+	.camera_caption > div p {
+		font-size:16px;
+		line-height:26px;
+	}
+	.camera_caption > div button {
+		margin-top:10px;
+	}
+}
+
+@media (min-width: @screen-md) and (max-width: @screen-md-max) {
+	.camera_caption {
+		top:30px !important;
+	}
+	.camera_caption > div h3 {
+		font-size:60px;
+		line-height:70px;
+	}
+	.camera_caption > div p {
+		font-size:16px;
+		line-height:26px;
+	}
+	.camera_caption > div button {
+		margin-top:10px;
+	}
+}
+
+@media (min-width: @screen-lg) {
+	.camera_caption {
+		top:70px !important;
+	}
+	.camera_caption > div h3 {
+		font-size:80px;
+		line-height:100px;
+	}
+	.camera_caption > div p {
+		font-size:30px;
+		line-height:40px;
+	}
+}

@@ -1,0 +1,21 @@
+<patTemplate:tmpl name="pageoutput" unusedvars="strip">
+<h2 class="page-header">{PAGETITLE}</h2>
+<p class="alert alert-warning">{INSTRUCTIONS}</p>
+
+<form action="{JOMRES_SITEPAGE_URL_NOSEF}" method="post" name="adminForm">
+{JOMRESTOOLBAR}
+<table width="100%" border="0" class="ui-widget-content ui-corner-all">
+	<tr>
+		<td width="30%">{HEMAIL_TITLE}</td>
+		<td><input type="text" class="inputbox" name="email_title" value="{EMAIL_TITLE}" size="40" /></td>
+	</tr>
+	<tr>
+		<td>{HCONTENT}</td>
+		<td>{CONTENT}</td>
+	</tr>
+</table>
+<input type="hidden" name="contract_uid" value="{CONTRACT_UID}" />
+<input type="hidden" name="guestEmail" value="{GUEST_EMAIL}" />
+<input type="hidden" name="task" value="save_booking_approval" />
+</form>
+</patTemplate:tmpl>

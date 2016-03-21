@@ -1,0 +1,34 @@
+<patTemplate:tmpl name="pageoutput" unusedvars="nbsp">
+<script language="JavaScript" type="text/javascript">
+jomresJquery(document).ready(function() {
+	var oTable = jomresJquery('#list_global_strings').dataTable({
+		"bJQueryUI": true,
+		"sPaginationType": "full_numbers"
+	});
+} );
+</script>
+<h2>{PAGETITLE}</h2>
+<p>{INFO}</p>
+<table id="list_global_strings" border="0" width="100%">
+	<thead>
+        <tr>
+			<th>{HDELETE}</th>
+            <th>{HID}</th>
+            <th>{HCONSTANT}</th>
+            <th>{HLANGUAGE}</th>
+            <th>{HCUSTOMTEXT}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <patTemplate:tmpl name="rows" unusedvars="nbsp">
+        <tr>
+			<td>{DELETELINK}</td>
+            <td>{ID}</td>
+            <td>{CONSTANT}</td>
+            <td>{LANGUAGE}</td>
+            <td>{CUSTOMTEXT}</td>
+        </tr>
+        </patTemplate:tmpl>
+    </tbody>
+</table>
+</patTemplate:tmpl>

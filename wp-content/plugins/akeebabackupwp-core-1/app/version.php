@@ -1,0 +1,4 @@
+<?php
+define('AKEEBABACKUP_PRO', '0');
+define('AKEEBABACKUP_VERSION', '1.6.4');
+define('AKEEBABACKUP_DATE', '2016-02-09');
